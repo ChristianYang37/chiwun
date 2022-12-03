@@ -21,6 +21,16 @@ git输入：
 ```
 git clone https://github.com/ChristianYang37/ES_Bot.git
 ```
+或：
+```
+git clone git@github.com:ChristianYang37/ES_Bot.git
+```
+在根目录命令行下输入：
+```
+cd ES_Bot
+unzip es_bot.zip
+unzip sentiment_analysis.zip
+```
 在运行前保证您的环境中有以下的库：
 ```
 pip install numpy
@@ -32,6 +42,7 @@ pip install matplotlib
 pip install gensim
 ```
 ## 使用ES_Bot对文本进行分析、筛选和回复：
+### 在运行之前，由于神经网络的体量较大不易上传，请在使用之前训练您自己的情绪分析模型，[请点击这里跳转训练指南](#index4)
 ### 输入数据：
 在根目录下创建您要输入的数据，用txt格式文件保存，每句文本请严格用换行符'\n'分隔
 ### 运行模型：
@@ -104,7 +115,7 @@ python predict.py --predict_file --predict_file_path ./data/file2predict.txt
 
 由于Bert模型的预测速度较慢，您可能需要补充--device cuda和--batch_size来加速您的预测，
 更多参数的使用，请查看predict.py中的详细代码
-### 训练：
+### <a id="index4">训练</a>：
 如果您想自己训练模型，请在./sentiment_analysis目录下输入：
 ```
 python main.py -m model_name / 
