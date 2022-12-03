@@ -48,11 +48,7 @@ pip install gensim
 ### 运行模型：
 命令行输入：
 ```
-python predict.py --predict_file_path your_datafile_path \
-                  --device cuda \
-                  --batch_size 8 \
-                  --threshold_value 2 \
-                  --max_len 128
+python predict.py --predict_file_path your_datafile_path --device cuda --batch_size 8 --threshold_value 2 --max_len 128
 ```
 其中predict_file_path为输入数据的地址，max_len为最大句长，超过句长进行截断，threshold_value为筛选文本的命中标签数大小，
 标签数大于等于threshold_value的才会被选中进入回复阶段
@@ -84,14 +80,14 @@ python predict.py --predict_file_path your_datafile_path \
 
 ### 模型：
 我们选用了Text CNN、BiLSTM、Transformer Encoder、Bert四个语言模型进行训练和对比效果，四种模型在预测速度和精度上有着一定差异。
-您可以查看'./sentiment_analysis/Models.py'文件来了解更多模型细节。
+您可以查看./sentiment_analysis/Models.py文件来了解更多模型细节。
 ### 预测：
 如果您想查看模型代码，请在根目录下命令行输入：
 ```
 cd sentiment_analysis
 ```
 
-如果您想试用我们的模型来对文本进行分析预测，请输入：\
+如果您想试用我们的模型来对文本进行分析预测，请输入：
 ```
 python predict.py --predict_sentence --model BERT
 ```
@@ -118,13 +114,10 @@ python predict.py --predict_file --predict_file_path ./data/file2predict.txt
 ### <a id="index4">训练</a>：
 如果您想自己训练模型，请在./sentiment_analysis目录下输入：
 ```
-python main.py -m model_name / 
-               -bs batch_size / 
-               -epochs N / 
-               -k num_folds
+python main.py -m model_name -bs batch_size -epochs N -k num_folds
 ```
-请保证您输入时的model_name为Text_CNN、BiLSTM、Transformer、BERT、all中的一个， 
-并且严格区分大小写,当model_name为all时，会训练所有模型并且在/models中输出模型训练结果 \
+请将batch_size和N替换为真实数字，另外请保证您输入时的model_name为Text_CNN、BiLSTM、Transformer、BERT、all中的一个， 
+并且严格区分大小写,当model_name为all时，会训练所有模型并且在/models中输出模型训练结果\
 输出结果示例：\
 \
 训练集Loss、ACC、F1、Precision、Recall指标折线图\
@@ -137,7 +130,7 @@ python main.py -m model_name /
 \
 模型代码支持多标签二分类的数据，如果您想用您自己的数据和模型来进行训练
 #### 自定义数据
-请将您的数据放在/sentiment_analysis/data/train.txt，并且将其copy一份到/sentiment_analysis/word2vec/data文件夹下
+请将您的数据放在./sentiment_analysis/data/train.txt，并且将其copy一份到./sentiment_analysis/word2vec/data文件夹下
 ,开始训练之前，请先运行word2vec.py或命令行输入`python word2vec/word2vec.py`\
 格式如下：
 >1001 Text1\
@@ -165,7 +158,7 @@ class model(nn.Module):
 ```
 然后，在main.py中main函数的model_list列表和switch字典中加入您的模型的名字 \
 开始训练之前，请将您的
-最后请在/sentiment_analysis目录命令行输入：
+最后请在./sentiment_analysis目录命令行输入：
 ```
 python main.py --num_labels your_data_num_of_labels /
                --model_name your_model_name /
@@ -241,7 +234,7 @@ python interact.py --no_cuda --model_dir path_to_your_model
 > After Training: 抱抱宝贝~你还年轻，身边的圈子还小呢。这世界有太多精彩和有趣的灵魂，你还没有体验到呢！不要难过呀，生活中还是有很多小确幸的，
 ### 训练：
 即使在爬虫的强大数据来源下，仍然很难挑选优质的数据进行序列，我们在后期人工筛选了一部分文本和优质评论，但是仅足够供给我们做以上的小实验，
-若您要使用我们的生成对抗网络代码进行训练，请仔细阅读`./es_bot/Train.py'的代码进行调参，并且运行文件以训练
+若您要使用我们的生成对抗网络代码进行训练，请仔细阅读./es_bot/Train.py的代码进行调参，并且运行文件以训练
 ## Contact
 由于作者能力尚浅，项目在许多细节方面仍然十分粗糙，欢迎大家提出问题、指正错误。\
 Email: yangcw5@mail2.sysu.edu.cn
