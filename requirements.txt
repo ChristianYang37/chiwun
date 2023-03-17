@@ -1,0 +1,10 @@
+matplotlib~=3.5.2
+torch~=1.13.0.dev20220726+cu116
+tqdm~=4.64.0
+transformers~=4.26.1
+numpy~=1.23.1
+bleu~=0.3
+pandas~=1.4.3
+sacrebleu~=2.3.1
+datasets~=2.5.1
+sentencepiece~=0.1.96
