@@ -195,9 +195,7 @@ def fine_tune(model, data_iter, optim, device, scaler):
         with autocast():
             return_dict = model(**X)
 
-        loss = scaler.scale(return_dict["loss"])
-
-        loss.backward()
+        loss = scaler.scale(return_dict["loss"]).backward()
 
         scaler.step(optim)
         scaler.update()
