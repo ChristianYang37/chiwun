@@ -133,3 +133,7 @@ dataset_features = {
     "boolq": ["question", "passage"]
 }
 ```
+
+## Our paper 
+
+Toward Infinite-Long Prefix in Transformer (arXiv preprint) [[arxiv]](https://arxiv.org/abs/2406.14036v1)
